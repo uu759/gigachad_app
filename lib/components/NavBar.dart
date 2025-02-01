@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../globals.dart' as globals;
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -8,16 +9,15 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int _selectedIndex = 1;
-
   void onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      globals.selectedIndex.value = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    globals.selectedIndex.addListener(() => setState(() {}));
     return BottomNavigationBar(
       backgroundColor: Colors.white,
       showSelectedLabels: false,
@@ -28,7 +28,7 @@ class _NavBarState extends State<NavBar> {
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
         BottomNavigationBarItem(icon: Icon(Icons.edit), label: "Edit"),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: globals.selectedIndex.value,
       onTap: onItemTapped,
     );
   }

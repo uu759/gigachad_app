@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gigachad_app/globals.dart' as globals;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,9 +12,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static late int _selectedIndex;
   DateTime date = DateTime.now();
   late String dateStr;
+  Timer? _timer;
 
   @override
   void initState() {
@@ -21,13 +22,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
     dateStr =
         "${date.year}/${date.month.toString().padLeft(2, '0')}/${date.day.toString().padLeft(2, '0')}";
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (!mounted) return;
       setState(() {
         date = DateTime.now();
         dateStr =
             "${date.year}/${date.month.toString().padLeft(2, '0')}/${date.day.toString().padLeft(2, '0')}";
       });
     });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _timer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -90,6 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
               GestureDetector(
                 onTap: () {
                   print("Tapped!");
+                  globals.selectedIndex.value = 2;
                 },
                 child: const Row(
                   children: [
