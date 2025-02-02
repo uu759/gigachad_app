@@ -4,19 +4,20 @@ import 'package:gigachad_app/globals.dart' as globals;
 import 'package:gigachad_app/screens/calendar.dart';
 import 'package:gigachad_app/screens/goal.dart';
 import 'package:gigachad_app/screens/home.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
-  runApp(const MainApp());
+  initializeDateFormatting().then((_) => runApp(MainApp()));
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  MainApp({super.key});
 
   //이거 순서 중요함.
-  final List<Widget> screens = const [
-    CalendarScreen(),
-    HomeScreen(),
-    GoalScreen(),
+  final List<Widget> screens = [
+    const CalendarScreen(),
+    const HomeScreen(),
+    const GoalScreen(),
   ];
 
   @override
