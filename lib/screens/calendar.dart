@@ -22,6 +22,12 @@ class _CalendarScreenState extends State<CalendarScreen> {
         focusedDay: _focusedDay,
         firstDay: DateTime.utc(2000, 1, 1),
         lastDay: DateTime.utc(lastTimeYear, 12, 31),
+        headerStyle: const HeaderStyle(
+          formatButtonVisible: false, // format 버튼 숨기기
+          titleCentered: true, // 제목(날짜)을 가운데 정렬
+          titleTextStyle:
+              TextStyle(fontSize: 18, fontWeight: FontWeight.bold), // 제목 스타일
+        ),
         selectedDayPredicate: (day) {
           return isSameDay(_selectedDay, day);
         },

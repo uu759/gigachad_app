@@ -24,9 +24,17 @@ class _NavBarState extends State<NavBar> {
       showUnselectedLabels: false,
       items: const [
         BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month_outlined), label: "Calender"),
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.edit), label: "Edit"),
+          icon: Icon(Icons.calendar_month_outlined),
+          label: "Calender",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: "Home",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.edit),
+          label: "Edit",
+        ),
       ],
       currentIndex: globals.selectedIndex.value,
       onTap: onItemTapped,
