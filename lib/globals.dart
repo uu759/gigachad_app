@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 
 ValueNotifier<int> selectedIndex = ValueNotifier<int>(1);
 
+// 현재 날짜가 윤년인지 체크하는 함수
+yoonNyunDate(int year) {
+  return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) ? 29 : 28;
+}
+
 Map<int, Map<int, String>> motivationMents = {
   //0은 특별한 날이 아닐 때 랜덤으로 나오는 멘트
   0: {
@@ -27,6 +32,8 @@ Map<int, Map<int, String>> motivationMents = {
   2: {
     1: "새로운 달, 새로운 기회! 🌱 2월에도 목표를 향해 한 걸음 더 나아가 보세요! 🚀",
     15: "오늘은 2월의 절반! ⏳지금까지의 성과를 돌아보고, 남은 날들을 더 빛나게 만들어 보세요! ✨",
-    31: "2월의 끝, 새로운 시작! 🔄 2월의 성장을 돌아보고, 다음 달을 향해 힘차게 나아가세요! 🚀"
+    yoonNyunDate(DateTime.now().year):
+        "2월의 끝, 새로운 시작! 🔄 2월의 성장을 돌아보고, 다음 달을 향해 힘차게 나아가세요! 🚀"
+    // 2월이 29일까지 일때랑 28일까지 2개 있어서 이렇게 해뒀음
   },
 };

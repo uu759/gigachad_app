@@ -11,6 +11,8 @@ class CalendarScreen extends StatefulWidget {
 class _CalendarScreenState extends State<CalendarScreen> {
   static DateTime _selectedDay = DateTime.now();
   static DateTime _focusedDay = DateTime.now();
+  int lastTimeYear = DateTime.now().year + 20;
+  // 캘린더 마지막날을 현재 일자로 부터 20년 후로 설정
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
       child: TableCalendar(
         focusedDay: _focusedDay,
         firstDay: DateTime.utc(2000, 1, 1),
-        lastDay: DateTime.utc(2050, 12, 31),
+        lastDay: DateTime.utc(lastTimeYear, 12, 31),
         selectedDayPredicate: (day) {
           return isSameDay(_selectedDay, day);
         },

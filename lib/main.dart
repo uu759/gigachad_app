@@ -5,9 +5,13 @@ import 'package:gigachad_app/screens/calendar.dart';
 import 'package:gigachad_app/screens/goal.dart';
 import 'package:gigachad_app/screens/home.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:gigachad_app/models/jeolgi_cal.dart';
 
 void main() {
   initializeDateFormatting().then((_) => runApp(MainApp()));
+  late int year = DateTime.now().year;
+  Map<String, DateTime> jeolgisDate = JeolgiCalculator.getJeolgi(year);
+  // print(jeolgisDate);
 }
 
 class MainApp extends StatelessWidget {

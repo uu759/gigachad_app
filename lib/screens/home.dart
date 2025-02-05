@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     dateStr = makeDateString(date);
 
-    //1초마다 날짜 체크하는 함수.
+    // 1초마다 날짜 체크하는 함수.
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) async {
       if (!mounted) return;
 
