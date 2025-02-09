@@ -42,6 +42,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
         calendarStyle: const CalendarStyle(
           holidayTextStyle: TextStyle(color: Colors.red),
         ),
+        daysOfWeekStyle: const DaysOfWeekStyle(
+          weekdayStyle: TextStyle(overflow: TextOverflow.visible),
+        ),
         calendarBuilders: CalendarBuilders(
           defaultBuilder: (context, day, focusedDay) {
             Color saturdayColor = Colors.blue;
@@ -71,13 +74,16 @@ class _CalendarScreenState extends State<CalendarScreen> {
           dowBuilder: (context, day) {
             if (day.weekday == DateTime.sunday) {
               return const Center(
-                child: Text('일', style: TextStyle(color: Colors.red)),
+                child: Text('일',
+                    style: TextStyle(
+                        color: Colors.red, overflow: TextOverflow.visible)),
               );
             } else if (day.weekday == DateTime.saturday) {
               return const Center(
                 child: Text(
                   '토',
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(
+                      color: Colors.blue, overflow: TextOverflow.visible),
                 ),
               );
             }
