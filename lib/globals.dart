@@ -6,7 +6,6 @@ import 'package:gigachad_app/models/jeolgi_cal.dart';
 ValueNotifier<int> selectedIndex = ValueNotifier<int>(1);
 
 // 현재 날짜가 윤년인지 체크하는 함수
-// https://m.blog.naver.com/kaiz00/222425335195 이거 참고했음
 yoonNyunDate(int year) {
   return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) ? 29 : 28;
 }

@@ -1,3 +1,5 @@
+// 이 코드의 시간은 https://m.blog.naver.com/kaiz00/222425335195 에서 가져왔습니다.
+
 class JeolgiCalculator {
   static const int minutesPerYear = 525949; // 1년 = 525949분
   static const int baseYear = 1996; // 기준 연도
